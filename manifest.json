@@ -1,0 +1,20 @@
+{
+  "name": "My BlueSpice Wiki",
+  "short_name": "Wiki",
+  "start_url": "https://wd0b4431bad2.bluespice.cloud/wiki/Main_Page",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0057b7",
+  "icons": [
+    {
+      "src": "https://YOUR_GITHUB_USERNAME.github.io/bluespice-pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://YOUR_GITHUB_USERNAME.github.io/bluespice-pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
