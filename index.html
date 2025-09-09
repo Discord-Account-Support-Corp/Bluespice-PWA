@@ -3,15 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My BlueSpice Wiki</title>
+  <title>My BlueSpice Wiki PWA</title>
 
-  <!-- PWA Manifest -->
+  <!-- Link to Manifest -->
   <link rel="manifest" href="./manifest.json" />
   <meta name="theme-color" content="#0057b7" />
 
-  <!-- Icons for fallback -->
-  <link rel="icon" href="./icon-192.png" sizes="192x192" />
-  <link rel="apple-touch-icon" href="./icon-512.png" />
+  <!-- iOS PWA Fixes -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="BlueSpice Wiki" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+
+  <!-- Basic Style + iOS Safe Areas -->
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      text-align: center;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f9f9f9;
+      color: #333;
+    }
+    a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #0057b7;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
 
   <!-- Register Service Worker -->
   <script>
@@ -20,16 +49,19 @@
         navigator.serviceWorker
           .register("./service-worker.js")
           .then((reg) => console.log("Service Worker registered:", reg))
-          .catch((err) => console.error("Service Worker failed:", err));
+          .catch((err) => console.error("SW registration failed:", err));
       });
+    }
+
+    // Auto-redirect when opened in browser (but not in PWA standalone)
+    if (window.navigator.standalone !== true) {
+      window.location.href = "https://wd0b4431bad2.bluespice.cloud/wiki/Main_Page";
     }
   </script>
 </head>
 <body>
-  <h1>Welcome to My BlueSpice Wiki PWA</h1>
-  <p>This PWA is a wrapper for your Wiki:</p>
-  <a href="https://wd0b4431bad2.bluespice.cloud/wiki/Main_Page">
-    Go to Wiki →
-  </a>
+  <h1>My BlueSpice Wiki PWA</h1>
+  <p>This app will redirect you to your wiki.</p>
+  <a href="https://wd0b4431bad2.bluespice.cloud/wiki/Main_Page">Open Wiki Now</a>
 </body>
 </html>
