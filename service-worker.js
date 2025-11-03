@@ -1,7 +1,7 @@
 const CACHE_NAME = "bluespice-cache-v1";
 const urlsToCache = [
-  "https://wd0b4431bad2.bluespice.cloud/wiki/Main_Page",
-  "https://wd0b4431bad2.bluespice.cloud/wiki/load.php"
+  "https://waec7187cb78.bluespice.cloud/",
+  "https://waec7187cb78.bluespice.cloud/"
 ];
 
 self.addEventListener("install", (event) => {
